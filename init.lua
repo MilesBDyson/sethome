@@ -114,9 +114,10 @@ minetest.register_chatcommand("sethome", {
                 return
             end
         end
+        local player_name
         if player_name then pname = player_name else pname = name end
         local player = minetest.env:get_player_by_name(name)
-        local pos = player:getpos()
+        local pos = player:get_pos()
         homepos[pname] = pos
         minetest.chat_send_player(name, "Home set!")
         changed = true
